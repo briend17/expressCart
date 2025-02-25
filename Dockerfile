@@ -1,25 +1,20 @@
-FROM mhart/alpine-node:8
+# Usar una imagen base de Node.js
+FROM node:16-alpine
 
-ENV NODE_VERSION 8.9.4
-
-RUN apk add --no-cache make gcc g++ python bash
-
+# Establecer el directorio de trabajo dentro del contenedor
 WORKDIR /var/expressCart
 
-COPY lib/ /var/expressCart/lib/
-COPY bin/ /var/expressCart/bin/
-COPY config/ /var/expressCart/config/
-COPY public/ /var/expressCart/public/
-COPY routes/ /var/expressCart/routes/
-COPY views/ /var/expressCart/views/
+# Copiar el archivo package.json y package-lock.json
+COPY package*.json ./
 
-COPY app.js /var/expressCart/
-COPY package.json /var/expressCart/
-COPY deploy.js /var/expressCart/
-
+# Instalar las dependencias
 RUN npm install
 
-VOLUME /var/expressCart/data
+# Copiar el resto del código de la aplicación
+COPY . .
 
+# Exponer el puerto en el que corre la aplicación
 EXPOSE 1111
-ENTRYPOINT ["npm", "start"]
+
+# Comando para ejecutar la aplicación
+CMD ["npm", "start"]
