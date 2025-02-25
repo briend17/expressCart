@@ -1,5 +1,5 @@
 {
-    "cartTitle": "CLOTH",
+    "cartTitle": "KELLY'S",
     "cartDescription": "expressCart",
     "cartLogo": "",
     "baseUrl": "http://localhost:1111",
@@ -15,12 +15,12 @@
     "googleAnalytics": "",
     "injectJs": "",
     "customCss": "",
-    "currencySymbol": "£",
+    "currencySymbol": "$",
     "currencyISO": "USD",
     "paymentGateway": [
         "stripe"
     ],
-    "databaseConnectionString": "mongodb://127.0.0.1:27017/expresscart",
+    "databaseConnectionString": "mongodb://mongodb:270171/expresscart",
     "theme": "Cloth",
     "trackStock": false,
     "orderHook": "",
